@@ -1,0 +1,52 @@
+.dash-container {
+  height: 100vh;
+  background: #020d07 url("/assets/wayne-bg.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-box {
+  width: 600px;
+  padding: 40px;
+  background: rgba(0, 20, 10, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 0 35px rgba(0, 255, 157, 0.6);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.dash-title {
+  font-size: 32px;
+  color: #00ff9d;
+  text-shadow: 0 0 10px #00ff9d;
+  margin-bottom: 10px;
+}
+
+.dash-subtitle {
+  font-size: 18px;
+  color: #b2ffd9;
+  margin-bottom: 30px;
+}
+
+.dash-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dash-btn {
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 10px;
+  background: #00ff9d;
+  color: #002a16;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.dash-btn:hover {
+  box-shadow: 0 0 20px #00ff9d;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,66 @@
+.login-background {
+  width: 100%;
+  height: 100vh;
+  background: url("/assets/wayne.png") center no-repeat;
+  background-size: 45%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 90%;
+  max-width: 420px;
+  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.25);
+  border: 1px solid rgba(0, 255, 100, 0.2);
+  color: #fff;
+  text-align: center;
+}
+
+.login-logo {
+  width: 140px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 100, 0.45));
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+label {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: #111;
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background: rgb(0, 210, 100);
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgb(0, 255, 140);
+}

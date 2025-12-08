@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import "./Login.css"; // CSS separado para ficar mais limpo
+import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,32 +24,28 @@ export default function Login() {
   }
 
   return (
-    <div className="login-background">
-      <div className="login-container">
-        <img src="/assets/waynelogo.jpg" className="login-logo" />
+    <div className="login-container">
+      <h1>Login</h1>
 
-        <h1>Login</h1>
+      <form onSubmit={handleLogin}>
+        <label>Email</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-        <form onSubmit={handleLogin}>
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <label>Senha</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-          <label>Senha</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          <button type="submit">Entrar</button>
-        </form>
-      </div>
+        <button type="submit">Entrar</button>
+      </form>
     </div>
   );
 }

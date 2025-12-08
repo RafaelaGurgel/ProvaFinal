@@ -1,60 +1,57 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import "./Register.css";
 
 export default function Register() {
-  const navigate = useNavigate();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("EMPLOYEE");
-  const [error, setError] = useState("");
 
-  const handleRegister = async (e) => {
+  async function handleRegister(e) {
     e.preventDefault();
-    setError("");
-
     try {
-      await api.post("/auth/register", { email, password, role });
-      alert("Usuário criado com sucesso!");
-      navigate("/login");
+      await api.post("/auth/register", {
+        name,
+        email,
+        password
+      });
+
+      alert("Usuário registrado com sucesso!");
     } catch (err) {
-      setError("Erro ao registrar usuário");
+      alert("Erro ao registrar usuário!");
     }
-  };
+  }
 
   return (
     <div className="register-container">
-      <form onSubmit={handleRegister} className="register-box">
-        <h2>Criar Conta</h2>
+      <h1>Registrar</h1>
 
-        {error && <p className="error">{error}</p>}
+      <form onSubmit={handleRegister}>
+        <label>Nome</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
+        <label>Email</label>
         <input
           type="email"
-          placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
+        <label>Senha</label>
         <input
           type="password"
-          placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="EMPLOYEE">EMPLOYEE</option>
-          <option value="MANAGER">MANAGER</option>
-          <option value="ADMIN">ADMIN</option>
-        </select>
-
         <button type="submit">Registrar</button>
-
-        <p className="register-link" onClick={() => navigate("/login")}>
-          Já tenho conta
-        </p>
       </form>
     </div>
   );

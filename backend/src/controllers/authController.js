@@ -6,25 +6,27 @@ const prisma = new PrismaClient();
 
 /* -------------------- REGISTER -------------------- */
 exports.register = async (req, res) => {
-  const { email, password, role } = req.body;
+  const { name, email, password, role } = req.body;
 
   try {
-    // Já existe usuário com esse email?
+    if (!name) {
+      return res.status(400).json({ error: "Nome é obrigatório" });
+    }
+
     const userExists = await prisma.user.findUnique({ where: { email } });
 
     if (userExists) {
       return res.status(400).json({ error: "Email já está em uso" });
     }
 
-    // Criptografando a senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Criando usuário
     const user = await prisma.user.create({
       data: {
+        name,
         email,
         password: hashedPassword,
-        role: role || "user", // Se não vier role, vira user
+        role: role || "EMPLOYEE",
       },
     });
 

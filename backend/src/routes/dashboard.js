@@ -1,8 +1,9 @@
-const express = require('express');
+import express from "express";
+
 const router = express.Router();
-const { stats } = require('../controllers/dashboardController');
-const { auth, authorize } = require('../middlewares/auth');
 
-router.get('/stats', auth, authorize(['MANAGER', 'ADMIN']), stats);
+router.get("/", (req, res) => {
+  res.json({ message: "Dashboard route working!" });
+});
 
-module.exports = router;
+export default router;

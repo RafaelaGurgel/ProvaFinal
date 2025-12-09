@@ -9,26 +9,16 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  name      String
   email     String   @unique
   password  String
-  role      String   @default("EMPLOYEE")
+  role      String   @default("user")
   createdAt DateTime @default(now())
-  logs      Log[]
 }
 
 model Resource {
   id        Int      @id @default(autoincrement())
   name      String
   type      String
-  status    String
+  status    String   @default("ativo")
   createdAt DateTime @default(now())
-}
-
-model Log {
-  id        Int      @id @default(autoincrement())
-  action    String
-  createdAt DateTime @default(now())
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
 }

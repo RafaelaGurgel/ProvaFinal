@@ -1,40 +1,46 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-async function list(req, res) {
-  const resources = await prisma.resource.findMany();
-  res.json(resources);
+export async function getResources(req, res) {
+  try {
+    const list = await prisma.resource.findMany({ orderBy: { createdAt: "desc" }});
+    res.json(list);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao buscar recursos" });
+  }
 }
 
-async function getById(req, res) {
-  const id = Number(req.params.id);
-  const resource = await prisma.resource.findUnique({ where: { id } });
-  if (!resource) return res.status(404).json({ error: 'Recurso não encontrado' });
-  res.json(resource);
+export async function createResource(req, res) {
+  try {
+    const { name, type, status } = req.body;
+    const item = await prisma.resource.create({ data: { name, type, status: status || "ativo" }});
+    res.json(item);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao criar recurso" });
+  }
 }
 
-async function create(req, res) {
-  const { name, description, quantity } = req.body;
-  const resource = await prisma.resource.create({
-    data: { name, description, quantity: quantity || 1 }
-  });
-  res.json(resource);
+export async function updateResource(req, res) {
+  try {
+    const id = Number(req.params.id);
+    const { name, type, status } = req.body;
+    const item = await prisma.resource.update({ where: { id }, data: { name, type, status }});
+    res.json(item);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao atualizar recurso" });
+  }
 }
 
-async function update(req, res) {
-  const id = Number(req.params.id);
-  const { name, description, quantity } = req.body;
-  const resource = await prisma.resource.update({
-    where: { id },
-    data: { name, description, quantity }
-  });
-  res.json(resource);
+export async function deleteResource(req, res) {
+  try {
+    const id = Number(req.params.id);
+    await prisma.resource.delete({ where: { id }});
+    res.json({ message: "Recurso removido" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erro ao remover recurso" });
+  }
 }
-
-async function remove(req, res) {
-  const id = Number(req.params.id);
-  await prisma.resource.delete({ where: { id } });
-  res.json({ success: true });
-}
-
-module.exports = { list, getById, create, update, remove };

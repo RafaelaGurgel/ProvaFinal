@@ -1,0 +1,87 @@
+/* Estrutura geral */
+.home-container {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e0e0e0;
+}
+
+/* Logo */
+.home-header {
+  text-align: center;
+  padding: 25px 0;
+}
+
+.home-logo {
+  height: 90px;
+  filter: brightness(0.9);
+}
+
+/* Hero */
+.home-hero {
+  flex: 1;
+  background: url("../assets/waaaheader.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Box central */
+.hero-box {
+  background: rgba(0,0,0,0.75);
+  padding: 40px 50px;
+  border-radius: 12px;
+  max-width: 550px;
+  text-align: center;
+  border: 1px solid #222;
+  backdrop-filter: blur(4px);
+}
+
+.hero-box h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+  letter-spacing: 2px;
+}
+
+.hero-box p {
+  font-size: 16px;
+  color: #c7c7c7;
+  margin-bottom: 25px;
+}
+
+/* Botões */
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.home-buttons button {
+  background: #111;
+  border: 1px solid #444;
+  padding: 12px 20px;
+  color: white;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.home-buttons button:hover {
+  background: #222;
+  border-color: #666;
+  transform: translateY(-2px);
+}
+
+/* Rodapé */
+.home-footer {
+  padding: 15px;
+  text-align: center;
+  background: #000;
+  font-size: 12px;
+  color: #777;
+}

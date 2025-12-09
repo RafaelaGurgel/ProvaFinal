@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
-import "./Navbar.css";
 
 export default function Navbar() {
   return (
-    <nav className="nav">
-      <div className="nav-left">
-        <img src="/assets/W.jpg" className="nav-logo" />
-        <h1 className="nav-title">Weyne Industries</h1>
-      </div>
-
-      <div className="nav-links">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/resources">Resources</Link>
-      </div>
+    <nav style={{ padding: "15px", background: "#222", color: "#fff" }}>
+      <Link to="/" style={{ marginRight: "15px", color: "white" }}>Dashboard</Link>
+      <Link to="/login" style={{ marginRight: "15px", color: "white" }}>Login</Link>
+      <Link to="/register" style={{ color: "white" }}>Registrar</Link>
     </nav>
   );
 }

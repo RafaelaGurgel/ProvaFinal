@@ -1,0 +1,55 @@
+.cadastro-container {
+  padding: 40px;
+  color: white;
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+.cadastro-container h1 {
+  color: #0af;
+  margin-bottom: 25px;
+}
+
+.cadastro-form {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  width: 380px;
+  border: 1px solid #222;
+}
+
+.cadastro-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ccc;
+}
+
+.cadastro-form input,
+.cadastro-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: white;
+}
+
+.cadastro-form input:focus {
+  outline: 2px solid #0af;
+}
+
+.cadastro-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0070f3;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cadastro-form button:hover {
+  background: #005fcc;
+}

@@ -1,52 +1,100 @@
-.dash-container {
-  height: 100vh;
-  background: #020d07 url("/assets/wayne-bg.png") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Geral */
+:root{
+  --bg:#0b0b0b;
+  --card:#0f1720;
+  --muted:#9aa3ac;
+  --accent:#3b82f6;
+  --accent-2:#22c55e;
+  --accent-3:#eab308;
 }
 
-.dash-box {
-  width: 600px;
-  padding: 40px;
-  background: rgba(0, 20, 10, 0.7);
-  border-radius: 16px;
-  box-shadow: 0 0 35px rgba(0, 255, 157, 0.6);
-  backdrop-filter: blur(12px);
-  text-align: center;
+.wg-dashboard{
+  min-height:100vh;
+  padding:28px;
+  background:linear-gradient(180deg,#050505 0%, #0b0b0b 100%);
+  color:#e6eef8;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-.dash-title {
-  font-size: 32px;
-  color: #00ff9d;
-  text-shadow: 0 0 10px #00ff9d;
-  margin-bottom: 10px;
+/* Header */
+.wg-header h1{
+  font-size:28px;
+  margin:0 0 6px 0;
+}
+.wg-sub{
+  color:var(--muted);
+  margin-top:4px;
+  margin-bottom:18px;
 }
 
-.dash-subtitle {
-  font-size: 18px;
-  color: #b2ffd9;
-  margin-bottom: 30px;
+/* Cards grid */
+.wg-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  margin-bottom:20px;
 }
 
-.dash-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.wg-card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.03);
+  padding:16px;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
 }
 
-.dash-btn {
-  padding: 14px;
-  font-size: 18px;
-  border-radius: 10px;
-  background: #00ff9d;
-  color: #002a16;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+.wg-card-stat{
+  text-align:center;
+  padding-top:18px;
+  padding-bottom:18px;
 }
 
-.dash-btn:hover {
-  box-shadow: 0 0 20px #00ff9d;
-  transform: translateY(-2px);
+.wg-card-title{
+  font-size:15px;
+  color:var(--muted);
+  margin:0;
 }
+
+.wg-value{
+  font-size:32px;
+  margin-top:10px;
+  color:var(--accent);
+  font-weight:700;
+}
+
+/* Charts area */
+.wg-charts{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  margin-bottom:20px;
+}
+
+@media(min-width:900px){
+  .wg-charts{ grid-template-columns: 1fr 1fr; }
+}
+
+/* Distribution bars */
+.wg-distribution{ display:flex; flex-direction:column; gap:12px; }
+.wg-dist-item{ display:flex; align-items:center; gap:12px; }
+.wg-dist-label{ width:110px; color:var(--muted); font-size:14px; }
+.wg-bar{ background: rgba(255,255,255,0.03); flex:1; height:12px; border-radius:8px; overflow:hidden; }
+.wg-bar-fill{ height:100%; border-radius:8px 0 0 8px; transition:width .6s ease; }
+.wg-bar-fill.vehicles{ background:var(--accent); }
+.wg-bar-fill.equipments{ background:var(--accent-2); }
+.wg-bar-fill.devices{ background:var(--accent-3); }
+.wg-dist-value{ width:48px; text-align:right; color:var(--muted); font-weight:600; }
+
+/* History mini bar chart (vertical bars) */
+.wg-history{ display:flex; gap:14px; align-items:end; height:160px; padding:10px 6px; }
+.wg-history-item{ display:flex; flex-direction:column; align-items:center; gap:8px; width:100%; }
+.wg-history-name{ color:var(--muted); font-size:13px; }
+.wg-history-bar{ width:36px; height:100%; background: rgba(255,255,255,0.03); display:flex; align-items:flex-end; border-radius:6px; overflow:hidden; }
+.wg-history-fill{ width:100%; background:linear-gradient(180deg,var(--accent), rgba(59,130,246,0.6)); transition:height .6s ease; }
+.wg-history-value{ color:var(--muted); font-size:13px; }
+
+/* Logs */
+.wg-log-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; color:var(--muted); font-size:14px; }
+
+/* small tweaks */
+.wg-chart-card{ padding-bottom:18px; }

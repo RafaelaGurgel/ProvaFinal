@@ -1,0 +1,3 @@
+/* ajustes globais do app */
+.root-app-wrapper { padding-top: 72px; min-height: calc(100vh - 72px); }
+.root-login-wrapper { min-height: 100vh; display:flex; align-items:center; justify-content:center; }

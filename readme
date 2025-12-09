@@ -1,0 +1,199 @@
+🦇 Indústrias Wayne – Sistema Interno de Segurança e Gestão
+Projeto Final — Desenvolvimento Web Full Stack
+Descrição do Projeto
+
+Este sistema foi desenvolvido como projeto final da disciplina, representando o sistema oficial de acesso interno das Indústrias Wayne.
+O objetivo é implementar um ambiente seguro e funcional para gestão de usuários, controle de acesso, visualização de dados internos e gerenciamento de recursos corporativos.
+
+O sistema conta com:
+
+✔ Tela de Login com autenticação via JWT
+✔ Dashboard administrativo
+✔ Gestão de Recursos (equipamentos, veículos e dispositivos de segurança)
+✔ Sistema de Cadastro de Usuários
+✔ Autorização por níveis (Administrador, Funcionário etc.)
+✔ Backend completo com Node.js, Express, Prisma e SQLite
+✔ Frontend com React + Vite
+✔ Interface inspirada na identidade visual Wayne Enterprises (tema dark)
+
+🏛️ Tecnologias Utilizadas
+🔹 Frontend
+
+React.js
+
+React Router DOM
+
+CSS customizado (tema dark)
+
+Vite
+
+🔹 Backend
+
+Node.js
+
+Express.js
+
+Prisma ORM
+
+SQLite
+
+JWT (Json Web Token)
+
+Bcrypt para criptografia de senhas
+
+🔹 Ferramentas Extras
+
+Git / GitHub
+
+Nodemon
+
+Axios
+
+🚀 Funcionalidades
+🔐 1. Autenticação & Autorização
+
+Login seguro com validação no backend
+
+Criptografia de senha
+
+Autorização de rotas com middleware
+
+Áreas restritas acessíveis apenas para usuários logados
+
+👤 2. Cadastro de Usuários
+
+Criar novos usuários
+
+Validação de dados
+
+Feedback de "Usuário cadastrado com sucesso"
+
+Níveis de permissão (admin / user)
+
+📊 3. Dashboard
+
+Painel de controle com visão geral do sistema
+
+Acesso rápido para páginas internas (Recursos, Cadastro, Sair)
+
+🛠️ 4. Gestão de Recursos
+
+Uma interface onde administradores podem:
+
+Adicionar novos recursos
+
+Editar recursos existentes
+
+Excluir itens
+
+Visualizar inventário geral
+
+Tipos de recursos:
+
+Equipamentos
+
+Dispositivos de segurança
+
+Veículos
+
+🎨 5. Interface Dark Theme
+
+Estilo limpo e moderno
+
+Logo das Indústrias Wayne
+
+Tela inicial estilizada
+
+Imagens internas da empresa
+
+📁 Estrutura de Pastas
+PROJETO FINAL/
+│
+├── backend/
+│   ├── prisma/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   ├── server.js
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── pages/
+│   │   ├── AppRoutes.jsx
+│   │   ├── App.css
+│   └── package.json
+│
+└── README.md
+
+⚙️ Configuração e Execução
+📌 1. Clonar o repositório
+git clone https://github.com/RafaelaGurgel/ProvaFinal
+
+🖥️ Backend
+📌 2. Instalar dependências
+cd backend
+npm install
+
+📌 3. Configurar o Prisma
+npx prisma migrate dev
+
+
+ou
+
+npx prisma db push
+
+📌 4. Criar o usuário administrador
+node create-admin.js
+
+📌 5. Iniciar o servidor backend
+npm run dev
+
+
+Backend rodará em:
+
+👉 http://localhost:4000
+
+🌐 Frontend
+📌 6. Instalar dependências
+cd ../frontend
+npm install
+
+📌 7. Iniciar o frontend
+npm run dev
+
+
+Frontend rodará em:
+
+👉 http://localhost:5173
+
+🔑 Login padrão do Administrador
+email: admin@wayne.com
+senha: 1234
+
+
+(gerado pelo script create-admin.js)
+
+🧪 Rotas Principais
+Rota	Função
+/	Login
+/home	Página inicial
+/dashboard	Painel administrativo
+/cadastro	Cadastro de usuários
+/recursos	Gestão de recursos
+*	Página não encontrada
+📸 Screenshots (Opcional)
+
+📌 Me envie prints que eu adiciono aqui bonitinho!
+
+👩‍💻 Autora
+
+Rafaela Gurgel
+Desenvolvedora Web — Projeto Final
+GitHub: https://github.com/RafaelaGurgel
+
+🦇 "A segurança é a nossa prioridade. A tecnologia é a nossa arma."
+
+— Wayne Enterprises
